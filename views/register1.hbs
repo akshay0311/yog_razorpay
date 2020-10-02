@@ -1,0 +1,123 @@
+{{> customer_nav}}
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3">
+        <i class="fas fa-user-plus"></i> Customer Register
+      </h1>
+      <br>
+      <!--Name-->
+      {{#if errors}}
+            {{#each errors}}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                   <p>{{this.msg}}</p>
+            </div>
+            {{/each}}
+      {{/if}}
+      <form action="/student/register" method="POST" class="w3-text-dark-gray">
+        <!-----First Name----------->
+        <div class="form-group">
+          <label for="name">First Name</label>
+          <input
+            type="name"
+            id="fname"
+            name="fname"
+            class="form-control"
+            placeholder="Enter First Name"
+            value="{{fname}}"
+          />
+        </div>
+        <!----------------------Last Name------------------->
+        <div class="form-group">
+          <label for="name">Last Name</label>
+          <input
+            type="name"
+            id="lname"
+            name="lname"
+            class="form-control"
+            placeholder="Enter Last Name"
+            value="{{lname}}"
+          />
+        </div>
+        <!--Email-->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Enter Email"
+            value="{{email}}"
+          />
+        </div>
+        <!--Password-->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Create Password"
+            value="{{password}}"
+          />
+        </div>
+        <!--Confirm Password-->
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            class="form-control"
+            placeholder="Confirm Password"
+            value="{{password2}}"
+          />
+        </div>
+        <!--Contact Number-->
+        <div class="form-group">
+            <label for="cnum">Contact Number:</label>
+            <input type="text" class="form-control" placeholder="Enter Contact Number" id="phone" name="phone">
+        </div>
+         <!--Country-->
+        <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="text" class="form-control" placeholder="Enter Country" id="country" name="country">
+        </div>
+        <!----State---->
+        <div class="form-group">
+            <label for="state">State:</label>
+            <input type="text" class="form-control" placeholder="Enter State" id="state" name="state">
+        </div>
+        <!----City---->
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" class="form-control" placeholder="Enter City" id="city" name="city">
+        </div>
+        <!---Street---->
+        <div class="form-group">
+            <label for="street">Street:</label>
+            <input type="text" class="form-control" placeholder="Enter Street" id="street" name="street">
+        </div>
+        <!---Pincode---->
+        <div class="form-group">
+            <label for="pincode">Pincode:</label>
+            <input type="text" class="form-control" placeholder="Enter Pincode " id="pincode" name="pincode">
+        </div>
+        <br>
+        <br>
+        &nbsp;Read <a class="w3-text-red mb-4" href="/student/terms1">Terms & Condition</a>
+        <br>
+        <br>
+        <input type="checkbox" class="ml-2 form-check-input" name="optradio1"value="I accept"><b class="ml-4">&nbsp;I accept terms & conditons </b>
+        <br>
+        <br>
+        <!--Button-->
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+        <br>
+      </form>  
+      <p class="w3-large mt-4">Have An Account? <a class="w3-text-blue" href="/student/login">Login</a></p>
+    </div>
+  </div>
+</div>

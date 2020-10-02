@@ -1,0 +1,44 @@
+<div class="tab">
+    <div class="container">
+        <div class="row" style="font-family: Tenor Sans, sans-serif;">
+            <div class="col-md-6">
+                <br>
+                <h3  class="mb-1">Peak Hours</h3>
+                <!---------------Peak Hours TimeSlots----------------------->
+                 <div class="row w3-border w3-border-black w3-round-large w3-padding-large w3-light-grey mr-2">
+                 {{#each timeSlots1}}
+                   <div class="col-4">
+                       <label>
+                          <input type="radio" name="hours" value="peak" hidden>
+                            <div class="card w3-border p w3-border-black w3-padding-large" style="max-width: 80px;">
+                              {{this}}
+                            </div>
+                       </label>
+                    </div>
+                  {{/each}}  
+                </div>
+            </div>  
+            <div class="col-md-6 ">
+                 <br>
+                 <h3 class="mb-1">Non-Peak Hours</h3>  
+                <!---------------Non-Peak Hours TimeSlots----------------------->
+                 <div class="row w3-border w3-border-black  w3-round-large w3-padding-large w3-light-grey">
+                 {{#each timeSlots2}}
+                   <div class="col-4">
+                       <label>
+                          <input type="radio" name="hours" value="non-peak" hidden>
+                            <div class="card w3-border p w3-border-black w3-padding-large" style="max-width: 80px;">
+                              {{this}}
+                            </div>
+                       </label>
+                    </div>
+                  {{/each}}  
+                </div> 
+            </div>     
+        </div> <!----------------Closing Rows----------->
+    </div> <!---------Closing Container--------------------->
+</div><!-------Closing Tabs---------->     
+<br>
+<br>
+            
+     

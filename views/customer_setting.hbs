@@ -1,0 +1,233 @@
+<!---------------Navbar-------------------------->
+<div class="container-fluid" style="width:100%;">
+    <div class="row">
+        <div class="col-5">
+          <img src="http://localhost:5000/yog.png" alt="t" style="width: 110px; height:90px;">
+        </div>
+        <!-------------Navbar Area------------>
+        <div class="col-7 pt-3" style="background:white;">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" href="/users/register">Register as Professional</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" href="student/dashboard">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" href="/student/logout">Logout {{fname}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" href="#">Settings</a>
+                    </li>
+                    <li>
+                        <img src="http://yogarogya.in/{{p}}" class="w3-circle" style="height:50px;width:50px" alt="Avatar"
+                        onerror=this.src="https://yogarogya.in/avatar.png">
+                    </li>
+                    </ul>
+                </div>
+            </nav> <!--Closing nav------->
+           </nav> <!--Closing nav------->
+        </div><!------------Closing col------->
+    </div><!------------Closing row---------->
+</div><!-------------Closing container---------->
+<!------------------------------------Closing Navbar-------------------------------> 
+<br>
+<div class="container">
+    <!------------------Form--------------->
+  <form action="/student/setting" method="POST" enctype="multipart/form-data">
+    <div class="row">
+        <!-----------------------------Left Sidebar------------------------------->
+        <div class="col-md-4 col-sm-12 w3-center">
+            <div class="w3-card-4 w3-padding-large" style="border-radius:20px;">
+                 <!--------------------------------Profile Pic Display-------------------->
+                <h3>Profile Pic</h3>
+                <br>
+                <p><img src="http://localhost:5001/{{p}}" class="w3-circle" style="height:110px;width:106px" alt="Avatar"
+                onerror=this.src="https://yogarogya.in/avatar.png"></p>
+                <input class="ml-5" type="file" id = "profile_pic" name="profile_pic"><br>   
+                <br>
+            </div>
+            <br>
+            <!--------------------------------------------Geolocation Changes------------------------------------------>
+            <div class="w3-card-4 w3-padding-large mb-4" style="border-radius:20px;">
+                <div class="container w3-center">
+                    <h3>Geolocation</h3>    
+                    <input type="checkbox" class="mt-2" id="show" onclick="getloc()"/>&nbsp;Give you location
+                    <div id="map" style="width:100%;height:400px; max-width:240px;border-radius:30px; display:none"></div>
+                    <br>
+                    <div id="building" style="display: none;">
+                            <label for="building"><b>Enter Area/Building</b></label>
+                            <input type="text" class="w3-border w3-border-black" style="max-width:300px;border-radius:20px;" 
+                            placeholder="Enter Area/Building">
+                    </div>
+                </div>                    
+            </div> 
+        </div>
+        <!-------Main Body---------->  
+        <div class="col-md-8 col-sm-12">
+            <!----------------------------Personal Info Changes------------------------------>
+            <div class="w3-card-4 w3-padding-large" style="border-radius: 20px;">
+                    <h3>Change your personal info</h3>
+                    <br>
+                        <div class="form-group">
+                            <label for="email"><b>Email</b></label>
+                            <input type="text" class="form-control" name="email" id="email" value="{{email}}" placeholder="Email" readonly>
+                        </div>
+                        <!--------First Name----------->
+                        <div class="form-group">
+                            <label for="fname"><b>First Name</b></label>
+                            <input type="text" class="form-control" name="fname" id="fName" value="{{fname}}" placeholder="First Name">
+                        </div>
+                        <!-------------Last Name------------------>
+                        <div class="form-group">
+                            <label for="lname"><b>Last Name</b></label>
+                            <input type="text" class="form-control" name="lname" id="lName" value="{{lname}}" placeholder="Last Name">
+                        </div>
+                        <!-----------------Phone Number--------------------->
+                        <div class="form-group">
+                            <label for="phone"><b>Phone Number</b></label>
+                            <input type="text" class="form-control" name="phone" id="phone" value="{{phone}}" placeholder="phone number">
+                        </div>
+                    
+            </div>
+            <br>
+            <!--------------------Change your address----------------------->
+             <div class="w3-card-4 w3-padding-large" style="border-radius: 20px;">
+                 <h3>Change your address</h3>
+                 <!----------------Pincode------------------>
+                    <div class="form-group">
+                        <label for="phone"><b>Pincode</b></label>
+                        <input type="text" class="form-control" name="pincode" id="pincode" value="{{pincode}}" placeholder="pincode">
+                    </div>
+                    <!--------------City------------------>
+                    <div class="form-group">
+                        <label for="city"><b>City</b></label>
+                        <input type="text" class="form-control" name="city" id="city" value="{{city}}" placeholder="city">
+                    </div>
+                    <!----------------State------------->
+                    <div class="form-group">
+                        <label for="state"><b>State</b></label>
+                        <input type="text" class="form-control" name="state" id="state" value="{{state}}" placeholder="state">
+                    </div>
+                    <!---------------Country----------------->
+                    <div class="form-group">
+                            <label for="country"><b>Country</b></label>
+                            <input type="text" class="form-control" name="country" id="country" value="{{country}}" placeholder="country">
+                        </div>
+                 </div>
+        </div>  
+    </div>
+    <br>
+        <!--------------Submitting Form------------->
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        <br>
+  </form>    
+</div>               
+
+
+<!----------------------Javascript for geolocation-------------------->
+<script>
+     /*---------------------------------Geolocation---------------------------*/   
+     function getloc(){   
+       var lat,long;
+       var checkBox = document.getElementById("show");
+        // Get the output text
+        var map = document.getElementById("map");
+        var building = document.getElementById("building");
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true){
+          map.style.display = "block";
+          building.style.display = "block";
+        } else {
+          map.style.display = "none";
+          building.style.display = "none";
+        } 
+        // For Geolocation
+        if ('geolocation' in navigator){
+          console.log("geo");
+          navigator.geolocation.getCurrentPosition(function(p){
+            lat = p.coords.latitude;
+            long = p.coords.longitude;
+            console.log(lat);
+            initMap(lat,long);
+          })
+        }
+      }
+    function initMap(lat,long){
+
+      // Map options
+      var options = {
+        zoom:15,
+        center:{lat:lat,lng:long}
+      }
+      
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Listen for click on map
+      google.maps.event.addListener(map, 'click', function(event){
+        // Add marker
+        addMarker({coords:event.latLng});
+      });
+
+      var markers = [
+        {
+          coords:{lat:lat,lng:long},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+        },
+        {
+          coords:{lat:lat,lng:long},
+          content:'<h1>Amesbury MA</h1>'
+        },
+        {
+          coords:{lat:lat,lng:long}
+        }
+      ];
+
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+    }
+  
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqeD1eqrxVLrJDUF3r9rMS-U-leaCiKKw
+    &callback=initMap">
+    </script> 
+</script>

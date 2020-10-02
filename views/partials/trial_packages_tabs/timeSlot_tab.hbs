@@ -1,0 +1,62 @@
+ <!---------------TimeSlot tab from trial------------>
+ <div class="tab">
+                <input type="text" name="last" value="last" hidden>
+                <div class="w3-container w3-padding-small " style="font-family: 'Montserrat', sans-serif;">
+                 <p class="w3-xlarge w3-text-black w3-panel w3-light-gray"><b>Pick up your time slot</b></p>
+                 <br>
+                 <br>
+                 <!----Day row--------->
+                 <p>When would you like your first session?</p>
+                <br>
+                <div class="container w3-border w3-border-dark-gray w3-padding w3-light-gray w3-round-xlarge" style="width: 100%;">
+                    <div class="row">
+                       <div class="col-4">
+                              <label>
+                                <input type="radio" class="timeSlot" name="timeSlot" value="tomorrow" hidden>
+                                <div class="card w3-border w3-border-black w3-padding-small" style="width: 97px;">
+                                  <p class="w3-small w3-text-black">Tomorrow</p>
+                                  <p class="w3-medium w3-text-black" id="tommorrow"></p>
+                                </div>
+                              </label>
+                       </div>
+                          <div class="col-4 ">
+                            <label>
+                                <input type="radio" class="timeSlot" name="timeSlot" value="Day After Tomorrow" hidden>
+                                <div class="card w3-border w3-border-black w3-padding-small" style="width: 95px;">
+                                    <p class="w3-small w3-text-black" id="dayAfter"></p>
+                                     <p class="w3-medium w3-text-black" id="dateAfter"></p>
+                                </div>
+                            </label>
+                          </div>
+                          <div class="col-4">
+                            <label>
+                                 <input type="radio"  class="timeSlot" name="timeSlot" value="3rd day from today"  hidden>
+                                <div class="card w3-border w3-border-black w3-padding-small" style="width: 95px;">
+                                  <p class="w3-small w3-text-black" id="dayAfter1"></p>
+                                  <p class="w3-medium w3-text-black" id="dateAfter1"></p>
+                                </div>
+                            </label>
+                       </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <!----------------------------Time Row------------------ ----->
+                <p>Pick up your time</p>
+                <div class="container-fluid w3-border-top w3-border-bottom w3-padding w3-border-left w3-border-dark-gray w3-light-gray w3-round-xlarge">
+              <div class="row">
+                 {{#each timeSlots}}
+                   <div class="col-4">
+                       <label>
+                          <input type="radio" class="timeSlot1" name="timeSlot1" value="{{this}}" hidden>
+                            <div class="card w3-border  w3-border-black w3-padding-large" style="max-width: 80px;">
+                              {{this}}
+                            </div>
+                       </label>
+                    </div>
+                  {{/each}}  
+                  </div>
+                </div>  
+              </div> 
+             </div>
+              <br>

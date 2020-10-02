@@ -1,0 +1,460 @@
+{{>instructor_nav}}
+<!---Page------------>
+<br>
+<br>
+<div class="container">
+    <p><b class="w3-xxlarge">Welcome&nbsp;</b><i class="w3-xlarge">{{name}}</i></p>
+</div>
+<br>
+<!--Page Container-->
+<div class="container">
+    <div class="row">
+        <!--Left Sidebar-->
+        <div class="col-md-4 col-sm-12">
+                <div class="w3-card   w3-white w3-round" style="height: 600px;">
+                <div class="w3-container">
+                    <!---Profile Pic Display----->
+                    <p class="w3-center w3-xlarge mt-3"  style="font-family: 'Recursive', sans-serif;">My Profile</p>
+                    <br>
+                        <p class="w3-center"><img src="https://yogarogya.in/{{p}}" class="w3-circle" style="height:110px;width:106px" alt="Avatar"
+                         onerror=this.src="https://yogarogya.in/avatar.png"></p>
+                    <div class="w3-center">
+                        <br>
+                        <!----Upload Profile Pic ---->
+                        <div class="dropdown">
+                        <button type="button" class="w3-btn w3-deep-orange  dropdown-toggle" data-toggle="dropdown">
+                         Upload Profile Pic
+                        </button>
+                        <div class="dropdown-menu w3-small" style="max-width: 120px;">
+                            <form action="/dashboard/upload1" method="POST" enctype="multipart/form-data"  onsubmit="myFunc()">
+                                <input type="hidden" id="email" name="email" value="{{email}}">
+                                <input type="file" id = "profile_pic" name="profile_pic"><br>   
+                                <button class="w3-tiny w3-btn w3-deep-orange " onclick="uploadProfilePic()" type="submit">Upload</button>
+                            </form>
+                            <br>
+                         </div>
+                        </div>        
+                    </div> 
+                    <br>
+                    <br>
+                    <!--Rating---->
+                    <p class="w3-center">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    </p>
+                    <br>
+                    <!---Personal Info----->
+                     <p class="ml-2"><b class="w3-text-blue-gray">User Name:&nbsp;&nbsp;</b>{{u_name}}</p>
+                    <p class="ml-2"><b class="w3-text-blue-gray">Name:&nbsp;&nbsp;</b>{{name}}</p>
+                    <p class="ml-2"><b class="w3-text-blue-gray">Phone No:&nbsp;&nbsp;</b>{{phone}}</p>
+                    <p class="ml-2"><b class="w3-text-blue-gray">EmailId:&nbsp;&nbsp;</b>{{email}}</p>   
+                    <p class="ml-2"><b class="w3-text-blue-gray">Address:&nbsp;&nbsp;</b>{{address}}</p>                
+                </div>
+            </div>
+        </div>
+        <br>
+        <!--Page Center-->
+        <div class="col-md-8 col-sm-12">
+             <div class="w3-card w3-round w3-white mt-3 mt-md-0">
+                <!--Container for Bio-->
+                <div class="w3-container">
+                    <div class="container pt-4">
+                        <span class=" w3-xlarge" style="font-family: 'Recursive', sans-serif;">Bio</span>
+                        <a href="/users/profile" class="w3-text-red float-right"><i>Edit Bio</i></a>
+                    </div>
+                    <br>
+                    <p class="w3-large">{{bio}}</p>
+                </div>
+            </div><!--End Bio-->
+            <br>
+            <!--Card For Qualification-->
+            <div class="w3-card w3-round w3-white">
+                <!--Container for qualifications-->
+                <div class="w3-container">
+                     <div class="container pt-4">
+                        <span class=" w3-xlarge" style="font-family: 'Recursive', sans-serif;">Qualification</span>
+                        <a href="/users/profile" class="w3-text-red float-right"><i>Edit Qualification</i></a>
+                    </div>
+                    <br>
+                    <!--ordered list of qualification-->
+                    <ul  class="w3-padding-large" class="w3-large">
+                          {{#if qual1.q}}
+                                 <li>{{qual1.q}}</li>
+                          {{/if}}       
+                          {{#if qual2.q}}
+                                 <li>{{qual2.q}}</li>
+                          {{/if}}
+                          {{#if qual3.q}}
+                                 <li>{{qual3.q}}</li>
+                          {{/if}}
+                          {{#if qual4.q}}
+                                 <li>{{qual4.q}}</li>
+                          {{/if}}       
+                          {{#if qual5.q}}
+                                 <li>{{qual5.q}}</li>
+                          {{/if}}
+                          {{#if qual6.q}}
+                                 <li>{{qual6.q}}</li>
+                          {{/if}}
+                          {{#if qual7.q}}
+                                 <li>{{qual7.q}}</li>
+                          {{/if}}
+                          {{#if qual8.q}}
+                                 <li>{{qual8.q}}</li>
+                          {{/if}}
+                    </ul>
+                </div>
+            </div><!--Qualification card closed-->
+            <br>
+            <br>
+            <!--Card for Certificates-->
+            <div class="w3-card w3-round w3-white">
+                <div class="w3-container pt-4">
+                    <!--Certificate Header--->
+                    <span class="w3-xlarge"  style="font-family: 'Recursive', sans-serif;">Certificates</span>
+                    <p class="w3-text-red w3-small">*Do not upload certificate more than 5mb</p>
+                    <br>
+                    <!---Certificate Display----->
+                    <div class="wrapper">
+                            {{#if qual1.q}}
+                                        <div class="w3-card mr-2">
+                                <img src="https://yogarogya.in/{{qual1.c_img_path}}"  onerror=this.src="https://yogarogya.in/egg.png" style="padding:10px;height:200px;width:250px;margin-left:20px;"> 
+                                 
+                                 <div class="w3-container w3-center pt-3 w3-border w3-border-top">
+                                    <b class="w3-large">Certificate For:</b> <br>{{qual1.q}}
+                                    <br>
+                                    <br>
+                                    <div class="dropdown dropleft">
+                                    <button type="button" class="w3-small w3-btn w3-deep-orange btn-block dropdown-toggle" data-toggle="dropdown">
+                                    Upload Pics
+                                    </button>
+                                    <!----Upload Pics --->
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
+                                        <div class="container">
+                                            <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
+                                                    <input type="text" value= "{{email}}"  name="email" hidden>     
+                                                    <input type="text" value= "" id="h1" name="h1"   hidden>
+                                                    <input type="file" name="certificate">
+                                                    <button class="w3-tiny w3-btn w3-deep-orange " id="r" >Upload</button>
+                                                    <br>
+                                                </form>
+                                                <br>
+                                             
+                                        </div>
+                                    </div>
+                                </div>  
+                                </div>
+                            </div>  
+                            {{/if}}
+                                 {{#if qual2.q}}
+                                        <div class="w3-card mr-2">
+                                <img src="https://yogarogya.in/{{qual2.c_img_path}}"  onerror=this.src="https://yogarogya.in/egg.png" style="padding:10px;height:200px;width:250px;margin-left:20px;"> 
+                                 
+                                 <div class="w3-container w3-center pt-3 w3-border w3-border-top">
+                                    <b class="w3-large">Certificate For:</b><br>{{qual2.q}}
+                                    <br>
+                                    <br>
+                                    <div class="dropdown dropleft">
+                                    <button type="button" class="w3-btn w3-deep-orange w3-small btn-block dropdown-toggle" data-toggle="dropdown">
+                                    Upload Pics
+                                    </button>
+                                    <!----Upload Pics --->
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
+                                        <div class="container">
+                                            <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
+                                                    <input type="text" value= "{{email}}"  name="email" hidden>     
+                                                    <input type="text" value= "" id="h2" name="h2"   hidden>
+                                                    <input type="file" name="certificate">
+                                                    <button class="w3-tiny w3-btn w3-deep-orange " id="s" >Upload</button>
+                                                    <br>                                        
+                                                </form>
+                                                <br>
+                                        </div>
+                                    </div>
+                                </div>  
+                                </div>
+                            </div>  
+                            {{/if}}
+                                 {{#if qual3.q}}
+                                        <div class="w3-card mr-2">
+                                <img src="https://yogarogya.in/{{qual3.c_img_path}}"  onerror=this.src="https://yogarogya.in/egg.png" style="padding:10px;height:200px;width:250px;margin-left:20px;"> 
+                                 
+                                 <div class="w3-container w3-center pt-3 w3-border w3-border-top">
+                                    <b class="w3-large">Certificate For:</b><br>{{qual3.q}}
+                                    <br>
+                                    <br>
+                                    <div class="dropdown dropleft">
+                                    <button type="button" class="w3-btn w3-deep-orange -w3-small btn-block dropdown-toggle" data-toggle="dropdown">
+                                    Upload Pics
+                                    </button>
+                                    <!----Upload Pics --->
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
+                                        <div class="container">
+                                            <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
+                                                    <input type="text" value= "{{email}}"  name="email" hidden>     
+                                                    <input type="text" value= "" id="h3" name="h3"   hidden>
+                                                    <input type="file" name="certificate">
+                                                    <button class="w3-tiny w3-btn w3-deep-orange " id="t" >Upload</button>
+                                                    <br>
+                                                    <br>
+                                                </form>
+                                                <form  method="POST">   
+                                                    <input type="text" value= "{{qual3.c_img_path}}" id="d3" name="d3"   hidden>
+                                                    <button class="w3-tiny btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
+                                                </form>
+                                        </div>
+                                    </div>
+                                </div>  
+                                </div>
+                            </div>  
+                            {{/if}} 
+                                 {{#if qual4.q}}
+                                        <div class="w3-card mr-2">
+                                <img src="https://yogarogya.in/{{qual4.c_img_path}}"  onerror=this.src="https://yogarogya.in/egg.png" style="padding:10px;height:200px;width:250px;margin-left:20px;"> 
+                                 
+                                 <div class="w3-container w3-center pt-3 w3-border w3-border-top">
+                                    <b class="w3-large">Certificate For:</b><br> {{qual4.q}}
+                                    <br>
+                                    <br>
+                                    <div class="dropdown dropleft">
+                                    <button type="button" class="w3-btn w3-deep-orange w3-small btn-block dropdown-toggle" data-toggle="dropdown">
+                                    Upload Pics
+                                    </button>
+                                    <!----Upload Pics --->
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
+                                        <div class="container">
+                                            <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
+                                                    <input type="text" value= "{{email}}"  name="email" hidden>     
+                                                    <input type="text" value= "" id="h4" name="h4"   hidden>
+                                                    <input type="text" value= "appi" id="h" name="h"   hidden>
+                                                    <input type="file" name="certificate">
+                                                    <button class="w3-tiny w3-btn w3-deep-orange " id="u" >Upload</button>
+                                                    <br>
+                                                    <br>
+                                                </form>
+                                                
+                                        </div>
+                                    </div>
+                                </div>  
+                                </div>
+                            </div>  
+                            {{/if}}
+                                 {{#if qual5.q}}
+                                        <div class="w3-card mr-2">
+                                <img src="https://yogarogya.in/{{qual5.c_img_path}}" onerror=this.src="https://yogarogya.in/egg.png" style="padding:10px;height:200px;width:250px;margin-left:20px;"> 
+                                 
+                                 <div class="w3-container w3-center pt-3 w3-border w3-border-top">
+                                    <b class="w3-large">Certificate For:</b><br>{{qual5.q}}
+                                    <br>
+                                    <br>
+                                    <div class="dropdown dropleft">
+                                    <button type="button" class="w3-btn w3-deep-orange w3-small btn-block dropdown-toggle" data-toggle="dropdown">
+                                    Upload Pics
+                                    </button>
+                                    <!----Upload Pics --->
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
+                                        <div class="container">
+                                            <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
+                                                    <input type="text" value= "{{email}}"  name="email" hidden>     
+                                                    <input type="text" value= "" id="h5" name="h5"   hidden>
+                                                    <input type="file" name="certificate">
+                                                    <button class="w3-tiny w3-btn w3-deep-orange " id="v" type="submit">Upload</button>
+                                                </form>
+                                                <br>
+                                              
+                                        </div>
+                                    </div>
+                                </div>  
+                                </div>
+                            </div>  
+                            {{/if}}
+                                         {{#if qual6.q}}
+                                        <div class="w3-card mr-2">
+                                <img src="https://yogarogya.in/{{qual6.c_img_path}}" onerror=this.src="https://yogarogya.in/egg.png" style="padding:10px;height:200px;width:250px;margin-left:20px;"> 
+                                 
+                                 <div class="w3-container w3-center pt-3 w3-border w3-border-top">
+                                    <b class="w3-large">Certificate For:</b><br>{{qual6.q}}
+                                    <br>
+                                    <br>
+                                    <div class="dropdown dropleft">
+                                    <button type="button" class="w3-btn w3-deep-orange w3-small btn-block dropdown-toggle" data-toggle="dropdown">
+                                    Upload Pics
+                                    </button>
+                                    <!----Upload Pics --->
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
+                                        <div class="container">
+                                            <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
+                                                    <input type="text" value= "{{email}}"  name="email" hidden>     
+                                                    <input type="text" value= "" id="h6" name="h6"   hidden>
+                                                    <input type="file" name="certificate">
+                                                    <button class="w3-tiny w3-btn w3-deep-orange " id="w" type="submit">Upload</button>
+                                                </form>
+                                                <br>
+                                                <form  method="POST">   
+                                                    <input type="text" value= "{{qual6.c_img_path}}" id="d6" name="d6"   hidden>
+                                                    <button class="w3-tiny btn btn-warning w3-text-black" formaction="/dashboard/delete" >Delete</button>
+                                                </form>
+                                        </div>
+                                    </div>
+                                </div>  
+                                </div>
+                            </div>  
+                            {{/if}}
+                                             {{#if qual7.q}}
+                                        <div class="w3-card mr-2">
+                                <img src="https://yogarogya.in/{{qual7.c_img_path}}" onerror=this.src="https://yogarogya.in/egg.png" style="padding:10px;height:200px;width:250px;margin-left:20px;"> 
+                                 
+                                 <div class="w3-container w3-center pt-3 w3-border w3-border-top">
+                                    <b class="w3-large">Certificate For:</b><br>{{qual7.q}}
+                                    <br>
+                                    <br>
+                                    <div class="dropdown dropleft">
+                                    <button type="button" class="w3-btn w3-deep-orange w3-small btn-block dropdown-toggle" data-toggle="dropdown">
+                                    Upload Pics
+                                    </button>
+                                    <!----Upload Pics --->
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
+                                        <div class="container">
+                                            <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
+                                                    <input type="text" value= "{{email}}"  name="email" hidden>     
+                                                    <input type="text" value= "" id="h7" name="h7"   hidden>
+                                                    <input type="file" name="certificate">
+                                                    <button class="w3-tiny w3-btn w3-deep-orange " id="x" type="submit">Upload</button>
+                                                </form>
+                                                <br>
+                                              
+                                        </div>
+                                    </div>
+                                </div>  
+                                </div>
+                            </div>  
+                            {{/if}}
+                                            {{#if qual8.q}}
+                                        <div class="w3-card mr-2">
+                                <img src="https://yogarogya.in/{{qual8.c_img_path}}" onerror=this.src="https://yogarogya.in/egg.png" style="padding:10px;height:200px;width:250px;margin-left:20px;"> 
+                                 
+                                 <div class="w3-container w3-center pt-3 w3-border w3-border-top">
+                                    <b class="w3-large">Certificate For:</b><br>{{qual8.q}}
+                                    <br>
+                                    <br>
+                                    <div class="dropdown dropleft">
+                                    <button type="button" class="w3-btn w3-deep-orange w3-small btn-block dropdown-toggle" data-toggle="dropdown">
+                                    Upload Pics
+                                    </button>
+                                    <!----Upload Pics --->
+                                    <div class="dropdown-menu w3-small" style="max-width: 120px;">
+                                        <div class="container">
+                                            <form action="/dashboard/upload2" enctype="multipart/form-data" method="POST">
+                                                    <input type="text" value= "{{email}}"  name="email" hidden>     
+                                                    <input type="text" value= "" id="h8" name="h8"   hidden>
+                                                    <input type="file" name="certificate">
+                                                    <button class="w3-tiny w3-btn w3-deep-orange " id="y" type="submit">Upload</button>
+                                                </form>
+                                                <br>
+                                               
+                                        </div>
+                                    </div>
+                                </div>  
+                                </div>
+                            </div>  
+                            {{/if}}
+                    </div>
+                    <br>
+                </div><!--Closed Card for certificates-->
+            </div>
+            <br>
+
+            <!--Card for Gallery-->
+            <div class="w3-card w3-round w3-white ">
+                 <div class="w3-container">
+                     <div class="container pt-4">
+                            <p class="w3-xlarge" style="font-family: 'Recursive', sans-serif;">Gallery</p>
+                            <!----Picture Header ---->
+                            <span class="w3-large"><b>Pictures</b></span>
+                            <p class="w3-text-red w3-small">*Do not upload your pics more than 5mb</p>
+                            <div class="dropdown float-right">
+                        <button type="button" class="w3-btn w3-deep-orange  dropdown-toggle" data-toggle="dropdown">
+                         Upload Pics
+                        </button>
+                        <!----Upload Pics --->
+                        <div class="dropdown-menu w3-small" style="max-width: 120px;">
+                            <form action="/dashboard1" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" id="email" name="email" value="{{email}}">
+                                <input type="file" name="pics" multiple><br>   
+                                <br>
+                                <button type="submit" class="w3-tiny w3-btn w3-deep-orange ">Upload</button>
+                            </form>
+                         </div>
+                        </div>     
+                    </div>
+                    <br>
+                    <br>
+                    <!---Picture Display--------->
+                    <div class="wrapper">
+                       {{#each p_i}}
+                            <div class="w3-card mr-2">
+                                <img src="https://yogarogya.in/{{this}}" style="padding:10px;height:200px;width:250px;margin-left:15px;">
+                            </div>
+                        {{/each}}    
+                    </div>
+                    <br>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function(){
+  $("#r").click(function(){
+    if ($("#h1").attr("value") == 0) 
+        $("#h1").attr("value", 1);
+    else
+         $("#h1").attr("value", 0);
+  });
+  $("#s").click(function(){
+    if ($("#h2").attr("value") == 0) 
+        $("#h2").attr("value", 1);
+    else
+         $("#h2").attr("value", 0);
+  });
+  $("#t").click(function(){
+    if ($("#h3").attr("value") == 0) 
+        $("#h3").attr("value", 1);
+    else
+         $("#h3").attr("value", 0);
+  });
+  $("#u").click(function(){
+    if ($("#h4").attr("value") == 0) 
+        $("#h4").attr("value", 1);
+    else
+         $("#h4").attr("value", 0);
+  });
+  $("#v").click(function(){
+    if ($("#h5").attr("value") == 0) 
+        $("#h5").attr("value", 1);
+    else
+         $("#h5").attr("value", 0);
+  });
+  $("#w").click(function(){
+    if ($("#h6").attr("value") == 0) 
+        $("#h6").attr("value", 1);
+    else
+         $("#h6").attr("value", 0);
+  });
+  $("#x").click(function(){
+    if ($("#h7").attr("value") == 0) 
+        $("#h7").attr("value", 1);
+    else
+         $("#h7").attr("value", 0);
+  });
+   $("#y").click(function(){
+    if ($("#h8").attr("value") == 0) 
+        $("#h8").attr("value", 1);
+    else
+         $("#h8").attr("value", 0);
+  });
+});
+
+</script>

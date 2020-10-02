@@ -1,0 +1,104 @@
+{{> instructor_nav}}
+<!----------Main Page--------------------->
+<!--Error Display------------------>
+<div class="container w3-round-xxlarge">
+   {{#if flag}}
+  {{else}}
+        <div class="alert alert-warning w3-small alert-dismissible fade show" role="alert">
+        <p class="w3-center pt-2 w3-text-black w3-large">
+          <i>Complete your profile</i>
+        </p>    
+    </div>
+  {{/if}}    
+</div>
+<br>
+<!--Personal Info-->
+<form action="/users/profile" method="POST">
+        <div class="container w3-white w3-round w3-round-xlarge"  style="max-width: 800px; width:100%">
+    <p class="w3-xxlarge w3-center"><b>Your Personal Info</b></p>
+    <div class="row w3-padding-large">
+        <div class="col-md-12">
+            <!--Full Name-->
+                <div class="form-group">
+                    <label for="fullName"><b>Full Name:</b></label>
+                    <input type="text" class="form-control" name="name" id="fullName" value="{{name}}">
+                </div>
+                <!--Email ID-->
+                <div class="form-group">
+                    <label for="email"><b>Email Id:</b></label>
+                    <input type="text" class="form-control" name="email" id="email" value="{{email}}" readonly>
+                </div>
+                <!--Contact Number-->
+                <div class="form-group">
+                    <label for="phone"><b>Contact Number:</b></label>
+                    <input type="text" class="form-control" name="phone" id="phone" value="{{phone}}">
+                </div>
+                 <!--Contact Number-->
+                <div class="form-group">
+                    <label for="address"><b>Address:</b></label>
+                    <input type="text" class="form-control" name="address" id="address" value="{{address}}">
+                </div>
+                <!--Bio-->
+                <div class="form-group">
+                    <label for="bio"><b>Your Bio:</b></label>
+                    <textarea type="text" class="form-control" name="bio" id="bio" style="min-height:250px;">{{bio}}</textarea>
+                </div>
+        </div>      
+        <br>
+        <br>
+        <br>
+        <br>  <!----------------Your Qualification--------------------->
+            <span class="w3-large"><b>Your Qualifications: &nbsp;&nbsp;</b></span>
+                <span class="w3-text-red w3-small">*Choose your top 8 qualification & fill them in right order</span>
+                <br><br>
+                <br>
+                <div class="col-md-12">
+                 <form action="/users/profile" method="POST">
+                                <!--Qualification1-->
+                    <div class="form-group">
+                            <label for="fullName"><b>1st Qualifications:</b></label>
+                            <input type="text" class="form-control" name="q1" id="q1" value="{{qual1.q}}">
+                    </div>     
+                        <!--Qualification2-->
+                        <div class="form-group">
+                            <label for="email"><b>2nd Qualifications:</b></label>
+                            <input type="text" class="form-control" name="q2" id="q2" value="{{qual2.q}}">
+                        </div>
+                        <!--Qualification3-->
+                        <div class="form-group">
+                            <label for="phone"><b>3rd Qualifications:</b></label>
+                            <input type="text" class="form-control" name="q3" id="q3" value="{{qual3.q}}">
+                        </div>
+                        <!--Qualification 4-->
+                         <div class="form-group">
+                            <label for="fullName"><b>4th Qualifications:</b></label>
+                            <input type="text" class="form-control" name="q4" id="q4" value="{{qual4.q}}">
+                        </div>
+                        <!--Qualification5-->
+                        <div class="form-group">
+                            <label for="email"><b>5th Qualifications:</b></label>
+                            <input type="text" class="form-control" name="q5" id="q5" value="{{qual5.q}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><b>6th Qualifications:</b></label>
+                            <input type="text" class="form-control" name="q6" id="q6" value="{{qual6.q}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><b>7th Qualifications:</b></label>
+                            <input type="text" class="form-control" name="q7" id="q7" value="{{qual7.q}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><b>8th Qualifications:</b></label>
+                            <input type="text" class="form-control" name="q8" id="q8" value="{{qual8.q}}">
+                        </div>
+                </div>
+
+                <button type="submit" class="w3-btn w3-block w3-deep-orange w3-round-large mt-4">Submit</button>    
+                 </form>   
+        </div>
+    </div>    
+</form>    
+         
+
+         
+

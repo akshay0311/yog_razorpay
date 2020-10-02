@@ -1,0 +1,110 @@
+<!----------------------------Navbar-------------------------------------->
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom1 w3-padding-large">
+        <a class="navbar-brand" href="/"><img src="http://yogarogya.in/yogarogya_log.png" alt="" width="88px;"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link  mr-3" href="#">About</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link  mr-3" href="#">Blog</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link  mr-3" href="/users/login">Login</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link  mr-3" href="/users/register">Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>  
+
+<!--------------------------Form Body-------------------------------------->
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body w3-round-xlarge">
+      <h1 class="text-center mb-3">
+        <i class="fas fa-user-plus"></i> Instructor Register
+      </h1>
+      <br>
+      <!--Name-->
+      {{#if errors}}
+            {{#each errors}}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                   <p>{{this.msg}}</p>
+            </div>
+            {{/each}}
+      {{/if}}
+      <form action="/users/register" method="POST" class="w3-text-dark-gray">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input
+            type="name"
+            id="name"
+            name="name"
+            class="form-control"
+            placeholder="Enter Full Name"
+            value="{{name}}"
+          />
+        </div>
+        <!--Email-->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Enter Email"
+            value="{{email}}"
+          />
+        </div>
+        <!--Password-->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="Create Password"
+            value="{{password}}"
+          />
+        </div>
+        <!--Confirm Password-->
+        <div class="form-group">
+          <label for="password2">Confirm Password</label>
+          <input
+            type="password"
+            id="password2"
+            name="password2"
+            class="form-control"
+            placeholder="Confirm Password"
+            value="{{password2}}"
+          />
+        </div>
+        <!--Contact Number-->
+        <div class="form-group">
+            <label for="cnum">Contact Number:</label>
+            <input type="text" class="form-control" placeholder="Enter Contact Number" id="phone" name="phone">
+        </div>
+        <br>
+        <br>
+        &nbsp;Read <a class="w3-text-red mb-4" href="/terms">Terms & Condition</a>
+        <br>
+        <br>
+        <input type="checkbox" class="ml-2 form-check-input" name="optradio"value="I accept"><b class="ml-4">&nbsp;I accept terms & conditons </b>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">Register</button>
+        <br>
+      </form>  
+      <p class="w3-large mt-4">Have An Account? <a class="w3-text-blue" href="/users/login">Login</a></p>
+    </div>
+  </div>
+</div>

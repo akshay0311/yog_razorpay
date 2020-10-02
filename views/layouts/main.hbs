@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.5.1.js" 
+integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/journal/bootstrap.min.css"
+    />
+	<script src="https://kit.fontawesome.com/yourcode.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap" rel="stylesheet">
+<script type="text/javascript" src="https://checkout.razorpay.com/v1/razorpay.js"></script>
+
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/8185922.js"></script>
+<!-- End of HubSpot Embed Code —>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-177338374-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-177338374-3');
+</script>
+<!--------------------------End of Google Analytics--------------------->
+
+<!---------------------------------------Google Adsense start-------------------------->
+<script data-ad-client="ca-pub-8571680194444355"
+ async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+ <!---------------------------------------Google Adsense closed----------------->
+
+
+<!-- Main Stylesheets home page -->
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/mystyle.css">
+<style>
+    .navbar-custom1 { 
+      background-color: #f7605e;  
+    }
+.navbar-brand {
+padding: 0px; /* firefox bug fix */
+}
+.navbar-brand>img {
+width: 100px;
+max-height: 80px;
+}
+button:hover{
+  background-color : white;
+}
+.pricing-item {
+	text-align: center;
+	background: #fff;
+	padding-bottom: 40px;
+	margin: 15px 0;
+	border-radius: 13px;
+	overflow: hidden;
+	-webkit-box-shadow: 0px 5px 6px rgba(72, 105, 114, 0.15);
+	box-shadow: 0px 5px 6px rgba(72, 105, 114, 0.15);
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	transition: all 0.4s;
+}
+
+
+
+.pricing-item .pi-top {
+	height: 156px;
+	padding-top: 26px;
+	background: #f65d5d;
+}
+
+.pricing-item .pi-top h4 {
+	font-family: "Playfair Display", serif;
+	color: #fff;
+	font-size: 22px;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+.pricing-item .pi-price {
+	width: 144px;
+	height: 144px;
+	margin: -71px auto 30px;
+	padding-top: 35px;
+	border-radius: 50%;
+	background: #fff;
+	-webkit-box-shadow: 0px 5px 6px rgba(72, 105, 114, 0.15);
+	box-shadow: 0px 5px 6px rgba(72, 105, 114, 0.15);
+}
+
+.pricing-item .pi-price h3 {
+	font-size: 40px;
+	font-weight: 700;
+	color: #666666;
+}
+
+.pricing-item .pi-price p {
+	text-transform: uppercase;
+	color: #999999;
+}
+
+.pricing-item ul {
+	list-style: none;
+	margin-bottom: 20px;
+}
+
+.pricing-item ul li {
+	font-size: 16px;
+	color: #666666;
+	margin-bottom: 12px;
+}
+
+.pricing-item.begginer .pi-top {
+	background: #fdb07d;
+}
+.pricing-item.entermediate .pi-top {
+	background: #fa8f70;
+}
+.pricing-item.advanced .pi-top {
+	background: #f2786f;
+}
+.site-btn.sb-line-gradient,
+.site-btn.sb-gradient {
+	background: -o-linear-gradient(305deg, #fdb07d 0%, #f65d5d 100%);
+	background: linear-gradient(145deg, #fdb07d 0%, #f65d5d 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fdb07d", endColorstr="#f65d5d", GradientType=1);
+}
+
+/*---------------------
+  Commom elements
+-----------------------*/
+
+/* buttons */
+
+.site-btn {
+	display: inline-block;
+	border: none;
+	font-size: 16px;
+	font-weight: 600;
+	min-width: 100px;
+	padding: 14px 30px;
+	border-radius: 50px;
+	text-transform: uppercase;
+	color: #fff;
+	line-height: normal;
+	cursor: pointer;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+.site-btn:hover {
+	color: #fff;
+}
+
+.site-btn.sb-white {
+	background: #fff;
+	color: #f65d5d;
+}
+
+.site-btn.sb-gradient {
+	color: #fff;
+	padding: 10px 20px;
+	position: relative;
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	transition: all 0.4s;
+	z-index: 1;
+}
+
+.site-btn.sb-gradient::after {
+	content: "";
+	position: absolute;
+	width: calc(100% - 4px);
+	height: calc(100% - 4px);
+	top: 2px;
+	left: 2px;
+	border-radius: 80px;
+	background: #fff;
+	z-index: -1;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	transition: all 0.4s;
+}
+
+.site-btn.sb-gradient:hover {
+	color: #f65d5d;
+}
+
+.site-btn.sb-gradient:hover:after {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.site-btn.sb-line-gradient {
+	color: #f65d5d;
+	padding: 13px 29px;
+	position: relative;
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	transition: all 0.4s;
+	z-index: 1;
+}
+
+.site-btn.sb-line-gradient::after {
+	content: "";
+	position: absolute;
+	width: calc(100% - 4px);
+	height: calc(100% - 4px);
+	top: 2px;
+	left: 2px;
+	border-radius: 80px;
+	background: #fff;
+	z-index: -1;
+	opacity: 1;
+	filter: alpha(opacity=100);
+	-webkit-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	transition: all 0.4s;
+}
+
+.site-btn.sb-line-gradient:hover {
+	color: #fff;
+}
+
+.site-btn.sb-line-gradient:hover:after {
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.p:hover{
+	-webkit-box-shadow: 0px 12px 32px rgba(95, 93, 93, 0.959);
+	box-shadow:0px 12px 32px rgba(41, 40, 40, 0.397);
+}
+
+.stars-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #ccc;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #f8ce0b;
+}
+
+</style>
+    <title>India's Premier Yog & Fitness Services</title>
+</head>
+<body ng-app="" onload="DayTime()"  style="background-color: #f9f2f0;">   
+    {{{body}}}
+</body>
+</html>

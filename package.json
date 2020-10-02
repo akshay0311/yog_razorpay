@@ -1,0 +1,44 @@
+{
+  "name": "node_passport_login",
+  "version": "2.0.0",
+  "description": "Node.js authentication with Passport",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-force-https": "^1.0.0",
+    "express-handlebars": "^5.1.0",
+    "express-http-to-https": "^1.1.4",
+    "express-session": "^1.15.6",
+    "express-validator": "^6.6.0",
+    "firebase-admin": "^9.1.1",
+    "fs": "0.0.1-security",
+    "hbs": "^4.1.1",
+    "https": "^1.0.0",
+    "jquery": "^3.5.1",
+    "mongoose": "^5.7.5",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.10",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pm2": "^4.4.1",
+    "razorpay": "^2.0.6",
+    "stripe": "^8.92.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}

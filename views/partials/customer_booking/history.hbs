@@ -1,0 +1,26 @@
+<div class="container">
+   <div class="row">
+   {{#each packageInfo}} 
+      {{#if this.completed}} 
+      <div class="col-md-3">
+         <div class="pricing-item entermediate">
+            <div class="pi-top">
+                  <h4>{{this.program}}</h4>
+            </div>
+            <div class="pi-price" style="margin-bottom:0;">
+                  <span><b>Rs.</b><h1>{{this.price}}</h1></span>
+            </div >
+            <ul>
+               <li class="mr-3"><b>For sessions plan: </b>{{this.session}}</li>
+               <li class="mr-3"><b>Validity For: </b>{{this.validity}}</li>
+            </ul>
+            <form action="/student/feedback" method="POST">
+                <input type="text" name= "BookId" value="{{this.id}}" hidden>
+                <button class="site-btn sb-line-gradient">Give FeedBack</button>
+            </form>
+         </div>
+      </div>
+      {{/if}}
+   {{/each}}   
+   </div>
+</div>

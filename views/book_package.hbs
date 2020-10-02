@@ -1,0 +1,114 @@
+<!----NavBar----->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom1 w3-padding-large">
+    <a class="navbar-brand" href="/"><img src="http://yogarogya.in/yogarogya_log.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>    
+<!-------Multi-step form------------->
+<form id="regForm" action="/book_package/pricing" method="POST" style="background-color: #f9f2f0; margin-top:0px;">
+    <input type="text" name="program" value="{{program}}" hidden>
+    <!--------------------------------Tab for online and in-person------------>
+    {{>book_packages_tabs/mode_tab}}
+    <!------Tab for peak & non-peak hours-------------->
+    {{>book_packages_tabs/timeSlot_tab}}
+    <!-------------------------Number of Participants Tab-------------------->
+    {{>book_packages_tabs/participants_tab}}
+
+    <!-----Submit Button----------->
+    <div style="overflow:auto;">
+         <button  class="site-btn sb-gradient mr-2" style="float:right;"type="button" id="nextBtn" onclick="nextPrev(1)">Next
+        </button>
+        <button  class="site-btn sb-gradient ml-2" type="button"style="float:left;" id="prevBtn" onclick="nextPrev(-1)"> 
+         Prev
+        </button>
+    </div>
+
+</form>
+
+ 
+<!-------------------Js for multistep-form------------->
+    <script> 
+         $(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
+        var currentTab = 0; // Current tab is set to be the first tab (0)
+        showTab(currentTab); // Display the current tab
+
+        // function for showing tab
+        function showTab(n) {
+            // This function will display the specified tab of the form...
+            var x = document.getElementsByClassName("tab");
+            x[n].style.display = "block";
+            //... and fix the Previous/Next buttons:
+            if (n == 0) {
+                // do not display previous button if the tab_no. is 0
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+            } 
+            else{
+                document.getElementById("nextBtn").innerHTML = "Next";
+            }
+        }
+
+        // moving fieldset forward or backward    
+        function nextPrev(n) {
+            // This function will figure out which tab to display
+            var x = document.getElementsByClassName("tab");
+            // Exit the function if any field in the current tab is invalid:     
+            // Hide the current tab:
+            x[currentTab].style.display = "none";
+            if (validateForm(n) && n>=0){
+               if ((currentTab == 0 && check())||(currentTab == 2 && check()))
+                currentTab = currentTab + 2*n;
+               else 
+                 currentTab = currentTab + n;   
+            } 
+            else if(n < 0){
+                if (currentTab == 2 && check())
+                    currentTab = currentTab + 2*n;
+                else 
+                    currentTab = currentTab + n; 
+            }          
+            // if you have reached the end of the form...
+            if (currentTab >= x.length) {
+                // ... the form gets submitted:
+                document.getElementById("regForm").submit();
+                return false;
+            }
+            // Otherwise, display the correct tab:
+            showTab(currentTab);
+        }
+
+        // if click is online then set flag == true
+        function check(){
+            if (document.querySelector('input[name="method"]:checked').value == 'online')
+                return true;
+            else
+                return false;
+        }
+
+        // function for checking if the form is clicked
+        function validateForm(n){
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].getElementsByTagName("input");
+            try {
+                if (currentTab == 0 && n >=0)
+                    d = document.querySelector('input[name="method"]:checked').value;
+                if (currentTab == 1 && n >=0)
+                    d = document.querySelector('input[name="hours"]:checked').value;
+                if (currentTab == 2 && n >=0)
+                    d = document.querySelector('input[name="participants"]:checked').value;        
+            }
+            catch(e){
+                alert("please select one of the option");
+                return false;
+            }
+            return true;
+        }    
+    </script>

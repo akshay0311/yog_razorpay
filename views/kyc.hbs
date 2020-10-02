@@ -1,0 +1,69 @@
+{{> instructor_nav}}
+<!----Page-------->
+<div class="container w3-round-xxlarge">
+    {{#if bool}}
+    <div class="alert alert-success w3-small alert-dismissible fade show" role="alert">
+      <p class="w3-center pt-2 w3-xlarge w3-text-black">
+        <i>KYC DONE</i>
+      </p>
+    </div>  
+{{else}}
+    <div class="alert alert-warning w3-small alert-dismissible fade show" role="alert">
+        <p class="w3-center pt-2 w3-xlarge w3-text-black">
+          <i>KYC NOT DONE</i>
+        </p>    
+    </div>
+{{/if}}
+</div>
+<br>
+<!--Personal Info-->
+<form action="/users/kyc" method="POST" enctype="multipart/form-data">
+        <div class="container w3-white w3-round w3-round-large" style="max-width: 800px; width:100%">
+    <p class="w3-xxlarge w3-center"><b>Your Bank Details:</b></p>
+    <br>
+    <br>
+    <div class="row  w3-border w3-panel w3-padding-large">
+         <input type="hidden" id="email" name="email" value="{{email}}">
+        <div class="col-md-12">
+            <!--Full Name-->
+                <div class="form-group">
+                    <label for="fullName"><b>Account Holder Name:</b></label>
+                    <input type="text" class="form-control" name="accnt_name" id="accnt_name" value="{{accnt_name}}">
+                </div>
+                <!--Email ID-->
+                <div class="form-group">
+                    <label for="email"><b>Account Number:</b></label>
+                    <input type="text" class="form-control" name="accnt_num" id="accnt_num" value="{{accnt_num}}">
+                </div>
+                <!--Contact Number-->
+                <div class="form-group">
+                    <label for="phone"><b>Bank Name:</b></label>
+                    <input type="text" class="form-control" name="b_name" id="b_name" value="{{b_name}}">
+                </div>
+                <!--Contact Number-->
+                <div class="form-group">
+                    <label for="phone"><b>Bank Address:</b></label>
+                    <input type="text" class="form-control" name="b_address" id="b_address" value="{{b_address}}">
+                </div>
+                <!--Contact Number-->
+                <div class="form-group">
+                    <label for="phone"><b>IFSC Code:</b></label>
+                    <input type="text" class="form-control" name="ifsc" id="ifsc" value="{{ifsc}}">
+                </div>
+                <br>
+                <p class="w3-medium"><b>Upload your aadhar</b></p>
+                 <input type="file" name="aadh">
+                 <br>
+                 {{#if aadh}} <i class="w3-small w3-text-red">AADHAR CARD  UPLOADED</i> {{/if}}
+                 <br>  
+                 <br>
+                 <p class="w3-medium"><b>Upload your Pan</b></p>
+                <input type="file" name="pan"><br> 
+                {{#if pan}} <i class="w3-small w3-text-red">PAN CARD  UPLOADED</i> {{/if}}
+                 <br>       
+        </div>          
+    <button type="submit" class="btn btn-primary btn-block mt-4">Submit</button>
+    </div>
+    </div> 
+ </div>   
+</form>    

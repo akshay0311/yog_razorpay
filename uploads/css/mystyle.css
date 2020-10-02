@@ -1,0 +1,104 @@
+.wrapper {
+    max-height:350px;
+    border: 1px solid #ddd;
+    display: flex;
+    overflow:auto;
+}
+.wrapper::-webkit-scrollbar{
+    width:0;
+} 
+.navbar-custom { 
+background-color: #f7605e; 
+}
+.navbar-brand {
+padding: 30px; /* firefox bug fix */
+}
+.navbar-brand>img {
+width: 10px;
+max-height: 80px;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+height: 30px;
+width: 30px;
+outline: black;
+background-color:black;
+background-size: 60%, 60%;
+border-radius: 50%;
+border: 1px solid black;
+position: absolute;
+}
+
+[type=radio] { 
+position: relative;
+opacity: 40;
+width: 10;
+height: 10;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+outline: 4px solid #f65d5d;
+border-radius: 20px;
+}
+
+[type=radio] + div{
+cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + div{
+outline: 4px solid #f65d5d;
+}
+
+
+.container-fluid {
+  position: relative;
+  width: 100%;
+}
+
+/* Make the image responsive */
+.con img {
+  width: 80%;
+  display: block;
+  height: 550px;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color:orangered;
+  font-size: 16px;
+  padding: 12px 24px;
+  cursor: pointer;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* CSS for multistep-form*/       
+/* Style the form */
+  #regForm {
+    background-color: #ffffff;
+    margin: 40px auto;
+    padding: 15px;
+    width: 80%;
+    min-width: 365px;
+  }
+
+  /* Hide all steps by default: */
+  .tab {
+    display: none;
+  }

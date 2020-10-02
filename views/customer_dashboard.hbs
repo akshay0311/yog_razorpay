@@ -1,0 +1,84 @@
+<!---------------Navbar-------------------------->
+<div class="container-fluid" style="width:100%;">
+    <div class="row">
+        <div class="col-5" style="">
+            <img src="http://localhost:5000/yog.png" alt="t" style="width: 110px; height:90px;">
+        </div>
+        <!-------------Navbar Area------------>
+        <div class="col-7 pt-3" style="background:white;">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" href="/users/register">Register as Professional</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" href="#">My Bookings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" href="/student/logout">Logout {{fname}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mr-3" href="/student/setting">Settings</a>
+                    </li>
+                     <li>
+                        <img src="http://yogarogya.in/{{p}}" class="w3-circle" style="height:50px;width:50px" alt="Avatar"
+                        onerror=this.src="https://yogarogya.in/avatar.png">
+                    </li>
+                    </ul>
+                </div>
+            </nav> <!--Closing nav------->
+        </div><!------------Closing col------->
+    </div><!------------Closing row---------->
+</div><!-------------Closing container---------->
+<!------------------------------------Closing Navbar------------------------------->
+<br>
+<br>
+<br>   
+<!------------Booking  Tabs---------------->
+    <!------------button to switch between tabs---------------->
+    <div class="w3-container w3-center">
+            <button id="b1" class="btn w3-text-white w3-black" style="width:25%;">Ongoing</button>
+            <button id="b2" class="btn w3-text-black w3-white" style="width:25%">History</button>
+        <!-------ongoing booking tab----------------->
+        <div class="bookingTab">
+            {{>customer_booking/ongoing}}
+        </div>
+        <!---------------history of booking tab------------------->
+        <div class="bookingTab">
+             {{>customer_booking/history}}
+        </div>
+    </div>
+<!--------------------Closing Booking Tabs-------------->
+
+
+<script>
+    $(document).ready(function(){
+            var x = document.getElementsByClassName("bookingTab");
+            x[0].style.display = 'block';
+            x[1].style.display = 'none';
+            $("#b1").click(()=>{
+                x[0].style.display = 'block';
+                x[1].style.display = 'none';  
+            })
+            $("#b2").click(()=>{
+                x[0].style.display = 'none';
+                x[1].style.display = 'block';
+            })           
+        })
+</script>
+
+
+
+
+
+
+
+
+
